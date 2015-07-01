@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ShuDuKu</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="main_lstv_empty">No data!</string>
+    <string name="get_more_puzzles_online">Get More Puzzles Online</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="folder_detail">%1$d puzzles (%2$d playing, %3$d solved)</string>
+    <string name="loading">Loading...</string>
+    
+</resources>
