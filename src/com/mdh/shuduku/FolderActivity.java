@@ -9,8 +9,13 @@ import android.os.Bundle;
 import android.app.ListActivity;
 import android.content.Context;
 import android.database.Cursor;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
@@ -18,33 +23,57 @@ import android.widget.TextView;
 public class FolderActivity extends ListActivity {
 
 	private ShudukuDatabase mDatabase;
-	private Cursor mCursor;
 	private FolderListViewBinder mFolderListViewBinder;
-//	private ListView mFolderListView;
+	private ListView mFolderListView;
+	private SimpleCursorAdapter mCursorAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.folder_activity_main);
 		
-//		mFolderListView = (ListView)findViewById(android.R.id.list);
+		mFolderListView = (ListView)findViewById(android.R.id.list);
+		registerForContextMenu(mFolderListView);
 		
 		mDatabase = new ShudukuDatabase(getApplicationContext());
-		mCursor = mDatabase.getFolderList();
+		Cursor folderListCursor = mDatabase.getFolderList();
 		
-		SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.folder_list_item, 
-				mCursor, new String[]{FolderColumns.NAME, FolderColumns._ID}, 
+		mCursorAdapter = new SimpleCursorAdapter(this, R.layout.folder_list_item, 
+				folderListCursor, new String[]{FolderColumns.NAME, FolderColumns._ID}, 
 				new int[]{R.id.folderName, R.id.detail});
 		mFolderListViewBinder = new FolderListViewBinder(this);
-		cursorAdapter.setViewBinder(mFolderListViewBinder);
+		mCursorAdapter.setViewBinder(mFolderListViewBinder);
 		
-		setListAdapter(cursorAdapter);
+		setListAdapter(mCursorAdapter);
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		// TODO Auto-generated method stub
+		super.onCreateContextMenu(menu, v, menuInfo);
+		
+		AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
+		Cursor cursor = (Cursor)mCursorAdapter.getItem(adapterContextMenuInfo.position);
+		if (cursor == null) {
+			return;
+		}
+		
+		menu.setHeaderTitle(cursor.getString(cursor.getColumnIndex(FolderColumns.NAME)));
+		
+		getMenuInflater().inflate(R.menu.folder_context_menu, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.folderactivity_options_menu, menu);
 		return true;
 	}
 	

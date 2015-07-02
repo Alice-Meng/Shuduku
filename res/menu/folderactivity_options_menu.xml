@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- android:orderInCategory="1"  
+    	The order of "importance" of the item, 
+    	the less the number, the more important -->
+    <item
+        android:id="@+id/add_folder"
+        android:orderInCategory="1"
+        android:showAsAction="ifRoom|withText"
+        android:alphabeticShortcut="a"
+        android:numericShortcut="1"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_title_add_folder"/>
+    
+    <item 
+        android:id="@+id/import_item"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom|withText"
+        android:alphabeticShortcut="i"
+        android:numericShortcut="2"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="@string/menu_title_import"
+        />
+	<item 
+        android:id="@+id/export_all_folders"
+        android:orderInCategory="4"
+        android:showAsAction="ifRoom|withText"
+        android:alphabeticShortcut="e"
+        android:numericShortcut="4"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="@string/menu_title_export_all"
+        />
+ 	<item 
+        android:id="@+id/about"
+        android:orderInCategory="3"
+        android:showAsAction="ifRoom|withText"
+        android:alphabeticShortcut="h"
+        android:numericShortcut="3"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/menu_title_about"
+        />
+
+</menu>

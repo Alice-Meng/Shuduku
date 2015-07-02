@@ -11,6 +11,14 @@
     <string name="difficulty_medium">Medium</string>
     <string name="difficulty_hard">Hard</string>
     <string name="folder_detail">%1$d puzzles (%2$d playing, %3$d solved)</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading&#8230;</string>  <!-- warning: Replace "..." with ellipsis character (…, &&;#8230;) ? -->
+    
+    <string name="menu_title_add_folder">Add Folder</string>
+    <string name="menu_title_export_all">Export All Folders</string>
+    <string name="menu_title_import">Import</string>
+    <string name="menu_title_about">About</string>
+    <string name="menu_title_export_folder">Export Folder</string>
+    <string name="menu_title_rename_folder">Rename Folder</string>
+    <string name="menu_title_delete_folder">Delete Folder</string>
     
 </resources>
