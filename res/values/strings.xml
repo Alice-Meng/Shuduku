@@ -21,4 +21,8 @@
     <string name="menu_title_rename_folder">Rename Folder</string>
     <string name="menu_title_delete_folder">Delete Folder</string>
     
+    <string name="name_colon">Name:</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    
 </resources>
