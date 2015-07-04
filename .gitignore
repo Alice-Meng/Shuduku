@@ -6,6 +6,7 @@
 .project
 .metadata
 bin/
+gen/
 tmp/
 *.tmp
 *.bak
@@ -214,3 +215,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.classpath
+.classpath
+*.class
+*.cache
+gen/com/mdh/shuduku/BuildConfig.java
+gen/com/mdh/shuduku/R.java
